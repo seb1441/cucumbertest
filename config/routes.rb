@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :items, only: [:index, :create] do
+    member do
+      post :mark_done
+    end
+  end
+  root "items#index"
 end
